@@ -14,25 +14,33 @@ $(document).ready(function(){
 
 	//helper function: show submission message, bind click event to OK button
    	var makeModal = function(message){
-		//append notification modal to DOM
-		$(".container").append("<div class='submission-notice'><p class='blue-text'>"+ message + "</p><button id='ok'>OK</button></div>");
+   		//disable submit button
+   		$('form').find(':input[type=submit]').prop('disabled', true);
+
+		//append notification modal to DOM, change background color
+		$("body").append("<div class='submission-notice'><p class='blue-text'>"+ message + "</p><button id='ok'>OK</button></div>")
+		.css('background-color', '#d3d3d3');
+
 		//remove submission notice modal
 		$('#ok').click(function(e){
 			e.preventDefault();
 			$('.submission-notice').remove();
+			$("body").css('background-color', '#f5f5f5');
+			//enable submit button again
+			$('form').find(':input[type=submit]').prop('disabled', false);
 		});
 	}; //end make modal fn
 
 	//helper function: check that form fields are complete
 	var checkFields = function(message, form){
  		//remove whitespace & return empty form fields
+ 		console.log(form)
 		var emptyFields = $('form :input').filter(function() {
             return $.trim(this.value) === "";
         });
 		//if there are incomplete fields, trigger error notification
-		//subtract 2 because the submit button counts as input and will always be empty,
-		//one radio button will always be unchecked
-        if (emptyFields.length - 2) {
+		//subtract 1 because the submit button counts as input and will always be empty
+        if (emptyFields.length - 1) {
           makeModal(message);
           return;
         }
@@ -66,15 +74,13 @@ $(document).ready(function(){
 				//trigger errorMessage
 				makeModal(errorMessage);
 			})//end fail helper fn
-		}//end checkFields if
+		}//end conditional trigger for post request 
 
 	}); //end form submission
 
 	//to-do
-	// ratings submission
 
 	//padding around top row on load
 	//media queries
-	//error message box formatting
 
 }); //end wrapper function
