@@ -67,6 +67,11 @@ h4 {
 	float: right;
 }
 
+.col {
+	width: 45%;
+	display: inline-block;
+}
+
 /* this styling includes only the form fields*/
 form {
 	margin-top: 16px;
@@ -92,9 +97,19 @@ input {
 	/*width: 45%;*/
 }
 
-.col {
-	width: 45%;
+#email {
+	text-align: left;
+}
+
+.col.sbmt-btn {
+	width: 49%;
+}
+
+.col p {
 	display: inline-block;
+	font: 14px system-ui;
+	margin: 0;
+	color: #d3d3d3;
 }
 
 /* move radio buttons offscreen */
@@ -165,7 +180,7 @@ button:hover {
 }
 
 /***** MEDIA QUERIES *****/
-/* increase container width so submission doesn't get too snug */
+/* increase container width so submission form doesn't get too snug */
 @media screen and (max-width: 1058px){
 	.container {
 		width: 60%;
@@ -180,14 +195,47 @@ button:hover {
 }
 
 @media screen and (max-width: 768px){
+	body{
+		padding: 16px;
+	}
+
 	.container{
 		width: 100%;
 	}
+
+	textarea{
+		width: 97%;
+	}
 }
 
-@media screen and (max-width: 622px){
-	.col {
-		width: 100%;
+@media screen and (max-width: 575px){
+	/* form styling */
+	#expand {
+		margin: 12px 0;
+	}
+
+	.fa-envelope-o {
+		display: none;
+	}
+
+	.fa-times{
+		font-size: 18px;
+	}
+
+	h4 {
+		font-size: 14px;
+		vertical-align: top;
+	}
+
+	.col, .col.sbmt-btn {
+		width: 92%;
 		display: block;
+		text-align: left;
+    	margin: 4px 0;
+    	float: none;
+	}
+
+	textarea{
+		width: 92%;
 	}
 }

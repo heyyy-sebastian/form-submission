@@ -82,5 +82,7 @@ $(document).ready(function(){
 
 	//padding around top row on load
 	//media queries
+		//policy btn stacking
+		//modal positioning
 
 }); //end wrapper function
