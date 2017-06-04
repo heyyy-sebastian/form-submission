@@ -26,27 +26,37 @@
 		<h3>A Submission form</h3>
 
 		<div class="feedback-form">
-			<a href="#"><div class="row" id="expand"> <!-- expandable header -->
+		<!-- expandable header -->
+			<a href="#"><div class="row" id="expand"> 
 				<i class="fa fa-envelope-o fa-2x white-text" aria-hidden="true"></i>
 				<h4 class="white-text">Questions or comments about this item?</h4>
 				<i class="fa fa-times fa-2x blue-text right" aria-hidden="true"></i>
 			</div></a> 
-			<form> <!-- comments form -->
-    			<textarea id="comments" name="comments" placeholder="Your questions or comments*"></textarea> <!--comments -->
-    			<div class="row"><!-- name/email -->
+			<!-- comments form -->
+			<form>
+			<!--comments -->
+    			<textarea id="comments" name="comments" placeholder="Your questions or comments*"></textarea> 
+    			<!-- name/email -->
+    			<div class="row">
     				<input type="text" id="name" name="name" placeholder="Your name*" />
     				<input type="email" id="email" name="email" class="right" placeholder="Your email*" />
     			</div>
-    			<div class="row"> <!-- like/submit -->
-    				<i class="fa fa-thumbs-up fa-2x blue-text" aria-hidden="true"></i>
-    				<i class="fa fa-thumbs-down fa-2x blue-text" aria-hidden="true"></i>
+    			<!-- like/submit -->
+    			<div class="row"> 
+    				<!--like button-->
+    				<input type="radio" id="good-rating" name="rating" value="good">
+    				<label id="thumbs-up" for="good-rating"><i class="fa fa-thumbs-up fa-2x blue-text" aria-hidden="true"></i></label>
+    				<!--dislike button-->
+    				<input type="radio" id="bad-rating" name="rating" value="bad">
+    				<label id="thumbs-down" for="bad-rating"><i class="fa fa-thumbs-down fa-2x blue-text" aria-hidden="true"></i></label>
     				<span class="blue-text">Rate this item</span>
+    				<!--submit-->
     				<div class="right">
     					<span>Our privacy Policy</span>
     					<button type="submit">Submit</button>
     				</div>
   				</div>
-			</form> <!-- form -->
+			</form> <!-- ./ form -->
 		</div> <!-- ./ form wrapper div -->
 		<article>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus condimentum ex quis pulvinar mattis. Aenean eu nisi eu justo luctus cursus vitae eget ipsum. Proin in volutpat lectus. Curabitur faucibus purus libero. Nullam iaculis tincidunt egestas. Sed tellus est, tempus in gravida ut, dictum vitae nibh. Morbi dapibus hendrerit nisl, eget tincidunt turpis fringilla vel. Nulla congue suscipit justo vitae ultrices. Nam mi tellus, commodo non eros quis, molestie iaculis dolor. Aenean magna est, euismod et dui in, pretium varius nulla.</p>

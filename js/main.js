@@ -12,10 +12,10 @@ $(document).ready(function(){
     	$active.stop().slideUp("slow").removeClass('active');
    	}); //end form expansion/collapse
 
-	//show submission message, bind click event to OK button
+	//helper function: show submission message, bind click event to OK button
    	var makeModal = function(message){
 		//append notification modal to DOM
-		$("body").append("<div class='submission-notice'><p class='blue-text'>"+ message + "</p><button id='ok'>OK</button></div>");
+		$(".container").append("<div class='submission-notice'><p class='blue-text'>"+ message + "</p><button id='ok'>OK</button></div>");
 		//remove submission notice modal
 		$('#ok').click(function(e){
 			e.preventDefault();
@@ -23,18 +23,22 @@ $(document).ready(function(){
 		});
 	}; //end make modal fn
 
-	//check that form fields are not null
-	var checkFields = function(message){
-		//remove whitespace & check for empty form fields
+	//helper function: check that form fields are complete
+	var checkFields = function(message, form){
+ 		//remove whitespace & return empty form fields
 		var emptyFields = $('form :input').filter(function() {
             return $.trim(this.value) === "";
         });
 		//if there are incomplete fields, trigger error notification
-        if (emptyFields.length) {
-            makeModal(message);
-            return
+		//subtract 2 because the submit button counts as input and will always be empty,
+		//one radio button will always be unchecked
+        if (emptyFields.length - 2) {
+          makeModal(message);
+          return;
         }
-	};//end form fields check
+        //give form back so post request can access it
+        return form;
+	 };//end form fields check
 
 	//attach handler to form submission
 	$('form').submit(function(e){
@@ -42,11 +46,12 @@ $(document).ready(function(){
 		e.preventDefault();
 		//assign data from form fields to variables
 		var form = $('form').serialize();
-		//set error message in case it's needed
-		var errorMessage = "There was an error completing your submission. Please check your information and try again."
-		//check that all fields are complete
-		checkFields(errorMessage);
-		//send data in post request	
+        //set error message in case it's needed
+        var errorMessage = "There was an error completing your submission. Please check your information and try again."
+        //check that all fields are complete 
+		//if form fields are complete, send data in post request	
+		if (checkFields(errorMessage, form)){
+		//	console.log(form)
 		$.post(
 			"https://httpbin.org/post", 
 			form,			
@@ -56,20 +61,20 @@ $(document).ready(function(){
 				var successMessage = "Thank you! Your submission has been recorded."
 				//trigger success notification
 				makeModal(successMessage);
-			},
-			"json")//end post request, add callback if the post request fails or if there's an error
+			})//end post request, add callback if the post request fails or if there's an error
 			.fail(function(){
 				//trigger errorMessage
 				makeModal(errorMessage);
-			})//end fail callback
+			})//end fail helper fn
+		}//end checkFields if
 
 	}); //end form submission
 
 	//to-do
 	// ratings submission
-	// error message
 
 	//padding around top row on load
 	//media queries
+	//error message box formatting
 
 }); //end wrapper function

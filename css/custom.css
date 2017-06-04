@@ -91,6 +91,24 @@ input {
 	width: 45%;
 }
 
+/* move radio buttons offscreen */
+input[type="radio"] {
+	position:absolute;
+	left: -99999px;
+}
+
+input[type=radio] + label {
+	opacity: .7;
+}
+
+input[type=radio]:hover + label {
+	opacity: .9;
+}
+
+input[type=radio]:checked + label {
+	opacity: 1;
+}
+
 .fa-thumbs-down {
 	vertical-align: middle;
 }
@@ -119,7 +137,7 @@ button:hover {
   top: -600px;
   left: 350px;
   -webkit-animation: slide 0.5s forwards;
-  -webkit-animation-delay: 1.5s;
+  -webkit-animation-delay: 1s;
   animation: slide 0.5s forwards;
   animation-delay: 1s;
 }
