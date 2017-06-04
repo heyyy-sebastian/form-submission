@@ -38,11 +38,12 @@
     			<textarea id="comments" name="comments" placeholder="Your questions or comments*"></textarea> 
     			<!-- name/email -->
     			<div class="row">
-    				<input type="text" id="name" name="name" placeholder="Your name*" />
-    				<input type="email" id="email" name="email" class="right" placeholder="Your email*" />
+    				<input type="text" id="name" name="name" class="col" placeholder="Your name*" />
+    				<input type="email" id="email" name="email" class="col right" placeholder="Your email*" />
     			</div>
     			<!-- like/submit -->
     			<div class="row"> 
+    				<div class="col">
     				<!--like button-->
     				<input type="radio" id="good-rating" name="rating" value="good">
     				<label id="thumbs-up" for="good-rating"><i class="fa fa-thumbs-up fa-2x blue-text" aria-hidden="true"></i></label>
@@ -50,8 +51,9 @@
     				<input type="radio" id="bad-rating" name="rating" value="bad">
     				<label id="thumbs-down" for="bad-rating"><i class="fa fa-thumbs-down fa-2x blue-text" aria-hidden="true"></i></label>
     				<span class="blue-text">Rate this item</span>
+    				</div>
     				<!--submit-->
-    				<div class="right">
+    				<div class="col right">
     					<span>Our privacy Policy</span>
     					<button type="submit">Submit</button>
     				</div>

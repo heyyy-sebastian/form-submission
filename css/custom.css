@@ -1,5 +1,6 @@
 /***** GLOBAL SETTINGS *****/
 body {
+	padding: 32px;
 	background-color: #f5f5f5;
 	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
@@ -7,10 +8,6 @@ body {
 .container {
 	margin: 0 auto;
 	width: 50%;
-}
-
-h1 {
-	margin: 50px 0 15px;
 }
 
 p {
@@ -66,8 +63,8 @@ h4 {
 }
 
 .right {
+	text-align: right;
 	float: right;
-	display: inline-block;
 }
 
 /* this styling includes only the form fields*/
@@ -92,7 +89,12 @@ textarea {
 input {
 	padding: 5px 10px;
 	min-height: 26px;
+	/*width: 45%;*/
+}
+
+.col {
 	width: 45%;
+	display: inline-block;
 }
 
 /* move radio buttons offscreen */
@@ -163,3 +165,29 @@ button:hover {
 }
 
 /***** MEDIA QUERIES *****/
+/* increase container width so submission doesn't get too snug */
+@media screen and (max-width: 1058px){
+	.container {
+		width: 60%;
+	}
+
+}
+
+@media screen and (max-width: 995px){
+	.container {
+		width: 75%;
+	}
+}
+
+@media screen and (max-width: 768px){
+	.container{
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 622px){
+	.col {
+		width: 100%;
+		display: block;
+	}
+}
