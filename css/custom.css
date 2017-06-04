@@ -124,6 +124,15 @@ button:hover {
   animation-delay: 1s;
 }
 
+.submission-notice p {
+	margin: 10px 0;
+}
+
+#ok {
+	margin: 0 auto;
+	display: flex;
+}
+
 @-webkit-keyframes slide {
     100% { top: 150px; }
 }

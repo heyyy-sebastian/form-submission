@@ -12,10 +12,15 @@ $(document).ready(function(){
     	$active.stop().slideUp("slow").removeClass('active');
    	}); //end form expansion/collapse
 
-	//show success message
+	//show submission message
    	var makeModal = function(message){
-		//append thank you modal to DOM
+		//append notification modal to DOM
 		$("body").append("<div class='submission-notice'><p class='blue-text'>"+ message + "</p><button id='ok'>OK</button></div>");
+		//remove submission notice modal
+		$('#ok').click(function(e){
+			e.preventDefault();
+			$('.submission-notice').remove();
+		});
 	};
 
 	//attach handler to form submission
