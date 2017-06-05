@@ -77,12 +77,6 @@ $(document).ready(function(){
 				makeModal(errorMessage);
 			})//end fail helper fn
 		}//end conditional trigger for post request 
-
 	}); //end form submission
-
-	//to-do
-	//padding around top row on load
-	//media queries
-		//modal positioning
 
 }); //end wrapper function
