@@ -65,6 +65,8 @@ $(document).ready(function(){
 			form,			
 			function(data, status){
 				//hide feedback form after successful submission
+				//i'm hiding the whole form because i'm assuming you'd want to avoid
+				//multiple submissions for the same page from a single user
 				$('.feedback-form').stop().slideUp("slow").removeClass('active');
 				var successMessage = "Thank you! Your submission has been recorded."
 				//trigger success notification
@@ -79,10 +81,8 @@ $(document).ready(function(){
 	}); //end form submission
 
 	//to-do
-
 	//padding around top row on load
 	//media queries
-		//policy btn stacking
 		//modal positioning
 
 }); //end wrapper function

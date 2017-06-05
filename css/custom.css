@@ -24,7 +24,7 @@ a {
 .feedback-form, .submission-notice {
 	border: 4px solid #005B96;
 	margin: 32px 0;
-	padding: 12px 20px;
+	padding: 4px 20px;
 	background-color: #005B96;
 	-webkit-transition: background-color 1s ease-out;
     -moz-transition: background-color 1s ease-out;
@@ -33,6 +33,7 @@ a {
 }
 
 .feedback-form.expanded {
+	padding: 12px 20px;
 	background-color: inherit;
 }
 
@@ -181,10 +182,14 @@ button:hover {
 
 /***** MEDIA QUERIES *****/
 /* increase container width so submission form doesn't get too snug */
-@media screen and (max-width: 1058px){
+@@media screen and (max-width: 1058px){
 	.container {
 		width: 60%;
 	}
+  
+  .submission-notice{
+    left: 34%;
+  }
 
 }
 
@@ -192,6 +197,10 @@ button:hover {
 	.container {
 		width: 75%;
 	}
+  
+  .submission-notice{
+    left: 33%;
+  }
 }
 
 @media screen and (max-width: 768px){
@@ -206,6 +215,10 @@ button:hover {
 	textarea{
 		width: 97%;
 	}
+  
+  .submission-notice{
+    left: 29%;
+  }
 }
 
 @media screen and (max-width: 575px){
@@ -238,4 +251,26 @@ button:hover {
 	textarea{
 		width: 92%;
 	}
+  
+  .submission-notice{
+    left: 20px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .expanded h4{
+    margin-top: 10px;
+	}
+  
+	.fa-times{
+    font-size: 24px;
+		position: relative;
+		top: -55px;
+		left: 15px;
+	}
+  
+  .submission-notice{
+    width: 260px;
+    left: 6px;
+  }
 }
