@@ -183,7 +183,7 @@ button:hover {
 
 /***** MEDIA QUERIES *****/
 /* increase container width so submission form doesn't get too snug */
-@@media screen and (max-width: 1058px){
+@media screen and (max-width: 1058px){
 	.container {
 		width: 60%;
 	}
