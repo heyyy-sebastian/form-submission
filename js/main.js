@@ -1,19 +1,21 @@
 $(document).ready(function(){
 	//expand/collapse form on click
-	$('#expand').click(function(){
-		var $active = $('.feedback-form').find('.active');
-  		//trigger background-color change
-  		$('.feedback-form').toggleClass('expanded');
-  		//swap text colors in top row
-  		$('.fa-envelope-o, h4').toggleClass('blue-text');
-    	//show form
-    	$('form').stop().slideDown("slow").addClass('active');
-    	//hide form
-    	$active.stop().slideUp("slow").removeClass('active');
-   	}); //end form expansion/collapse
+	function formExpansion(){
+		$('#expand').click(function(){
+			var $active = $('.feedback-form .active');
+  			//trigger background-color change
+  			$('.feedback-form').toggleClass('expanded');
+  			//swap text colors in top row
+  			$('.fa-envelope-o, h4').toggleClass('blue-text');
+    		//show form
+    		$('form').stop().slideDown("slow").addClass('active');
+    		//hide form
+    		$active.stop().slideUp("slow").removeClass('active');
+   		}); 
+   	}//end form expansion/collapse
 
 	//helper function: show submission message, bind click event to OK button
-   	var makeModal = function(message){
+   	function makeModal(message){
    		//disable submit button
    		$('form').find(':input[type=submit]').prop('disabled', true);
 
@@ -32,7 +34,7 @@ $(document).ready(function(){
 	}; //end make modal fn
 
 	//helper function: check that form fields are complete
-	var checkFields = function(message, form){
+	function checkFields(message, form){
  		//remove whitespace & return empty form fields
  		console.log(form)
 		var emptyFields = $('form :input').filter(function() {
@@ -49,6 +51,7 @@ $(document).ready(function(){
 	 };//end form fields check
 
 	//attach handler to form submission
+	function formSubmission(){
 	$('form').submit(function(e){
 		//prevent form from submitting normally
 		e.preventDefault();
@@ -78,11 +81,13 @@ $(document).ready(function(){
 			})//end fail helper fn
 		}//end conditional trigger for post request 
 
-	}); //end form submission
+	}); 
+	}//end form submission
 
-	//to-do
-	//padding around top row on load
-	//media queries
-		//modal positioning
+//invoke functions
+formExpansion();
+makeModal();
+checkFields();
+formSubmission();
 
 }); //end wrapper function
