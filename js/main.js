@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	//expand/collapse form on click
+
 	function formExpansion(){
 		$('#expand').click(function(){
 			var $active = $('.feedback-form .active');
@@ -12,7 +13,8 @@ $(document).ready(function(){
     		//hide form
     		$active.stop().slideUp("slow").removeClass('active');
    		}); 
-   	}//end form expansion/collapse
+   	} //end form expansion/collapse
+
 
 	//helper function: show submission message, bind click event to OK button
    	function makeModal(message){
@@ -36,18 +38,17 @@ $(document).ready(function(){
 	//helper function: check that form fields are complete
 	function checkFields(message, form){
  		//remove whitespace & return empty form fields
- 		console.log(form)
 		var emptyFields = $('form :input').filter(function() {
-            return $.trim(this.value) === "";
-        });
+            	return $.trim(this.value) === "";
+       		 });
 		//if there are incomplete fields, trigger error notification
 		//subtract 1 because the submit button counts as input and will always be empty
-        if (emptyFields.length - 1) {
-          makeModal(message);
-          return;
-        }
-        //give form back so post request can access it
-        return form;
+        	if (emptyFields.length - 1) {
+          	makeModal(message);
+          	return;
+        	}
+        	//give form back so post request can access it
+        	return form;
 	 };//end form fields check
 
 	//attach handler to form submission
@@ -57,12 +58,11 @@ $(document).ready(function(){
 		e.preventDefault();
 		//assign data from form fields to variables
 		var form = $('form').serialize();
-        //set error message in case it's needed
-        var errorMessage = "There was an error completing your submission. Please check your information and try again."
-        //check that all fields are complete 
+        	//set error message in case it's needed
+        	var errorMessage = "There was an error completing your submission. Please check your information and try again."
+        	//check that all fields are complete 
 		//if form fields are complete, send data in post request	
 		if (checkFields(errorMessage, form)){
-		//	console.log(form)
 		$.post(
 			"https://httpbin.org/post", 
 			form,			
@@ -80,7 +80,6 @@ $(document).ready(function(){
 				makeModal(errorMessage);
 			})//end fail helper fn
 		}//end conditional trigger for post request 
-
 	}); 
 	}//end form submission
 
