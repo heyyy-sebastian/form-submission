@@ -79,6 +79,11 @@ form {
 	display: none;
 }
 
+form.active {
+	display: block;
+	transition-property: all .5s cubic-bezier(0, 1, 0.5, 1);
+}
+
 textarea, input {
 	display: inline-block;
 	background-color: inherit;
